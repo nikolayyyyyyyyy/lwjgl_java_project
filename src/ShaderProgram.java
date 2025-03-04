@@ -6,8 +6,10 @@ public class ShaderProgram {
     private final int programID;
 
     public ShaderProgram(String vertexPath, String fragmentPath) {
-        int vertexShader = compileShader(loadShader(vertexPath), GL_VERTEX_SHADER);
-        int fragmentShader = compileShader(loadShader(fragmentPath), GL_FRAGMENT_SHADER);
+        int vertexShader =
+                compileShader(loadShader(vertexPath), GL_VERTEX_SHADER);
+        int fragmentShader =
+                compileShader(loadShader(fragmentPath), GL_FRAGMENT_SHADER);
 
         programID = glCreateProgram();
         glAttachShader(programID, vertexShader);

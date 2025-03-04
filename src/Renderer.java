@@ -11,8 +11,11 @@ public class Renderer {
                 "src/res/shaders/fragmentShader.frag");
 
         float[] vertices = {
-                0.0f, 0.0f, 0.0f
+                0.0f, 0.0f, 0.0f,
+                0.4f,0.5f,0.0f,
+                0.0f,0.5f,0.0f
         };
+
 
         vaoID = glGenVertexArrays();
         glBindVertexArray(vaoID);
@@ -32,7 +35,8 @@ public class Renderer {
         shaderProgram.use();
         glPointSize(10.0f);
         glBindVertexArray(vaoID);
-        glDrawArrays(GL_POINTS, 0, 1);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
+        glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     }
 }
